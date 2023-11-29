@@ -1,1 +1,24 @@
-<p>tabla works!</p>
+<div class="table-container">
+
+    <table id="data-table">
+        <thead>
+            <tr>
+                <th>No. Producto</th>
+                <th>Videojuego</th>
+                <th>Precio Unitario</th>
+                <th>No. Total de Ventas</th>
+                <th>Importe Total</th>
+            </tr>
+        </thead>
+        <tbody id="data-table-body">
+            <!-- Aquí se generará la tabla dinámicamente -->
+            <tr *ngFor="let product of productList">
+                <td>{{ product.id }}</td>
+                <td>{{ product.name }}</td>
+                <td>{{ product.price }}</td>
+                <td>{{ product.totalSalesNumber }}</td>
+                <td>{{ product.totalSalesPrice }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

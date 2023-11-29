@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Product } from 'src/app/models/producto';
+
 
 @Component({
   selector: 'app-tabla',
@@ -6,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./tabla.component.scss']
 })
 export class TablaComponent {
-
+ @Input() productList: Product[] = [];
 }
