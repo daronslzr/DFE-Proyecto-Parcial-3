@@ -4,7 +4,8 @@
         <thead>
             <tr>
                 <th>No. Producto</th>
-                <th>Videojuego</th>
+                <th>Imagen</th>
+                <th>Título</th>
                 <th>Precio Unitario</th>
                 <th>No. Total de Ventas</th>
                 <th>Importe Total</th>
@@ -14,6 +15,7 @@
             <!-- Aquí se generará la tabla dinámicamente -->
             <tr *ngFor="let product of productList">
                 <td>{{ product.id }}</td>
+                <td><img [src]="imagePath + product.image" [alt]="product.id"></td>
                 <td>{{ product.name }}</td>
                 <td>{{ product.price }}</td>
                 <td>{{ product.totalSalesNumber }}</td>
@@ -21,4 +23,8 @@
             </tr>
         </tbody>
     </table>
+</div>
+
+<div class="message" *ngIf="productList.length === 0">
+    <p>No se encontraron registros...</p>
 </div>

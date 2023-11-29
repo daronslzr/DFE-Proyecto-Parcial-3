@@ -9,4 +9,6 @@ import { Product } from 'src/app/models/producto';
 })
 export class TablaComponent {
  @Input() productList: Product[] = [];
+
+ imagePath = '../../../assets/img/videojuegos/';
 }

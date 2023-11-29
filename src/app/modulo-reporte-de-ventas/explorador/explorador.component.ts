@@ -7,6 +7,7 @@ import { DataService } from 'src/app/services/data.service';
   templateUrl: './explorador.component.html',
   styleUrls: ['./explorador.component.scss']
 })
+
 export class ExploradorComponent implements OnInit {
   productList: Product[] = [];
 
@@ -16,5 +17,11 @@ export class ExploradorComponent implements OnInit {
 
   ngOnInit():void{
     this.productList = this.data.getProductList();
+  }
+
+  get message():string{
+    return this.productList.length > 0 ?
+    `${this.productList.length} registros encontrados.` :
+    'No se han encontrado registros...';
   }
 }
