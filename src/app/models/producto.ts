@@ -10,7 +10,7 @@ export interface Product {
 
 
 export const dummyProductList: Product[] = [
-    {
+     {
         id: 1,
         image: 'AnimalCrossing.jpg',
         name: 'Animal Crossing',
