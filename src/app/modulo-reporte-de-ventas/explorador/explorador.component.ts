@@ -9,6 +9,8 @@ import { DataService } from 'src/app/services/data.service';
 })
 
 export class ExploradorComponent implements OnInit {
+  loadingProducts = false;
+
   productList: Product[] = [];
 
   constructor(private data: DataService){
@@ -16,12 +18,26 @@ export class ExploradorComponent implements OnInit {
   }
 
   ngOnInit():void{
-    this.productList = this.data.getProductList();
+    //this.productList = this.data.getProductList();
+    this.getProductList();
   }
 
   get message():string{
-    return this.productList.length > 0 ?
-    `${this.productList.length} registros encontrados.` :
-    'No se han encontrado registros...';
+    if(this.loadingProducts){
+      return 'Cargando...';
+    }else{
+      return this.productList.length > 0 ?
+      `${this.productList.length} registros encontrados.` :
+      'No se han encontrado registros...';
+    }
+  }
+
+  private getProductList(){
+    this.loadingProducts = true;
+
+    this.data.getProductList().subscribe(x => {
+      this.loadingProducts = false;
+      this.productList = x;
+    })
   }
 }

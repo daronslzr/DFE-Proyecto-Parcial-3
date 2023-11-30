@@ -17,14 +17,14 @@
                 <td>{{ product.id }}</td>
                 <td><img [src]="imagePath + product.image" [alt]="product.id"></td>
                 <td>{{ product.name }}</td>
-                <td>{{ product.price }}</td>
-                <td>{{ product.totalSalesNumber }}</td>
-                <td>{{ product.totalSalesPrice }}</td>
+                <td>{{ product.price | currency}}</td>
+                <td>{{ product.totalSalesNumber}}</td>
+                <td>{{ product.totalSalesPrice | currency}}</td>
             </tr>
         </tbody>
     </table>
 </div>
 
 <div class="message" *ngIf="productList.length === 0">
-    <p>No se encontraron registros...</p>
+    <p>{{ loadingProducts ? 'Cargando...' : 'No se encontraron registros...'}}</p>
 </div>
